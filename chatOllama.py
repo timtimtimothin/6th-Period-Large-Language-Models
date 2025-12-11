@@ -13,11 +13,9 @@ simulation_running = True
 while simulation_running == True:
     user_Text = input("What would you like to ask the neanderthal?")
     feasibility = Interpreter_Chain.invoke({"feasible":f"Decide if {user_Text} is feasible."})
-    print(feasibility)
+    #print(feasibility)
     if "not feasible" in feasibility:
         print("The data is not feasible!")
-        print("Your data was identified not feasible because:")
-        print(feasibility)
         Attempt = input("Would you like to enter a different prompt?")
         if Attempt.lower().strip() == "no" or Attempt.lower().strip() == "no thank you" or Attempt.lower().strip() == "nope" or Attempt.lower().strip() == "i'm good" or Attempt.lower().strip() == "im good":
             print(":(")
@@ -29,3 +27,4 @@ while simulation_running == True:
         print(response)
     else:
         print("An error has occurred.")
+        simulation_running = False
